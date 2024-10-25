@@ -1,0 +1,28 @@
+﻿@model IEnumerable<EducationalResourceManagement.Domain.Entities.Course>
+
+<h2>Course List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Teacher</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Title</td>
+                <td>@course.Teacher?.Name</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = course.Id })">Details</a> |
+                    <a href="@Url.Action("Edit", new { id = course.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = course.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Create")">Create New Course</a>
+
