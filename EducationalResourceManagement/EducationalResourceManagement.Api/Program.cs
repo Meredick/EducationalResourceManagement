@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using EducationalResourceManagement.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace EducationalResourceManagement.Api 
+namespace EducationalResourceManagement.Api
 {
     public class Program
     {
@@ -9,14 +12,18 @@ namespace EducationalResourceManagement.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Agregar DbContext al contenedor de servicios
+            builder.Services.AddDbContext<EducationalResourceContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Agregar servicios de controladores y Swagger
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configurar el pipeline de la aplicación
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
