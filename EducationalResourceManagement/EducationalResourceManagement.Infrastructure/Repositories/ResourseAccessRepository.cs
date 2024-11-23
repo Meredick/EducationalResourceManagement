@@ -43,6 +43,7 @@ namespace EducationalResourceManagement.Infrastructure.Repositories
             {
                 _context.ResourceAccesses.Remove(resourceAccess);
                 await _context.SaveChangesAsync();
+                
             }
         }
     }
