@@ -8,8 +8,15 @@ namespace EducationalResourceManagement.Domain.Entities
 {
     public class Material
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Url { get; set; }
+        public int Id { get; set; } 
+        public string? Title { get; set; } 
+        public string? Description { get; set; } 
+        public DateTime? UploadDate { get; set; } 
+        public string? FilePath { get; set; }
+        public int CourseId { get; set; }
+
+        public Course? Course { get; set; }
+
+        public ICollection<ResourceAccess>? Accesses { get; set; }
     }
 }

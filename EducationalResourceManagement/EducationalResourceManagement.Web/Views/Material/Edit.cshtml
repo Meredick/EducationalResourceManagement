@@ -1,0 +1,29 @@
+﻿@model EducationalResourceManagement.Domain.Entities.Material
+
+<h1>Edit Material</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="UploadDate">Upload Date</label>
+        <input asp-for="UploadDate" class="form-control" type="date" />
+        <span asp-validation-for="UploadDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="FilePath">File Path</label>
+        <input asp-for="FilePath" class="form-control" />
+        <span asp-validation-for="FilePath" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

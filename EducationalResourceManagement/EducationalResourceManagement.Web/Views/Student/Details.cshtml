@@ -1,0 +1,15 @@
+﻿@model EducationalResourceManagement.Domain.Entities.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Name: @Model.Name</h3>
+</div>
+
+<div>
+    <a href="@Url.Action("Index", "Student")">Back to List</a>
+</div>

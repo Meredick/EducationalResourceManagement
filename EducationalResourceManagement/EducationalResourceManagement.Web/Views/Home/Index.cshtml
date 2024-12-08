@@ -1,10 +1,50 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Click below to manage courses:</p>
-    <a class="btn btn-primary" href="@Url.Action("Index", "Course")">Manage Courses</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Educational Resource Management</h1>
+            <p>Manage your educational resources efficiently and effectively.</p>
+            <a href="#services" class="btn-primary">Explore Our Services</a>
+        </div>
+    </header>
 
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Manage Teachers</h3>
+                    <p>Efficiently manage teachers and their assignments.</p>
+                    <a href="/teachers" class="btn">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Track Students</h3>
+                    <p>Keep track of student progress and materials.</p>
+                    <a href="/students" class="btn">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Access Resources</h3>
+                    <p>Share and access educational resources with ease.</p>
+                    <a href="/courses" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Educational Resource Management</p>
+    </footer>
+</body>
+</html>

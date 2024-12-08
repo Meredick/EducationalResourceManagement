@@ -1,0 +1,48 @@
+﻿@model EducationalResourceManagement.Domain.Entities.Material
+
+<h2>Create New Material</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" id="Description" name="Description">@Model.Description</textarea>
+    </div>
+    <div class="form-group">
+        <label for="UploadDate">Upload Date</label>
+        <input type="datetime-local" class="form-control" id="UploadDate" name="UploadDate" value="@Model.UploadDate?.ToString("yyyy-MM-ddTHH:mm")" />
+    </div>
+    <div class="form-group">
+        <label for="FilePath">File Path</label>
+        <input type="text" class="form-control" id="FilePath" name="FilePath" value="@Model.FilePath" />
+    </div>
+    <div class="form-group">
+        <label for="CourseId">Course</label>
+        <select class="form-control" id="CourseId" name="CourseId">
+            @if (ViewData["Courses"] != null)
+            {
+                var courses = ViewData["Courses"] as List<EducationalResourceManagement.Domain.Entities.Course>;
+                if (courses != null)
+                {
+                    foreach (var course in courses)
+                    {
+                        <option value="@course.Id">@course.Title</option>
+                    }
+                }
+                else
+                {
+                    <option value="">No courses available</option>
+                }
+            }
+            else
+            {
+                <option value="">No courses available</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

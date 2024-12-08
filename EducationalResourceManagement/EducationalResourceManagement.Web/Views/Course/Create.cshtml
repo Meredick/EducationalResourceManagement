@@ -1,15 +1,17 @@
-﻿@model EducationalResourceManagement.Domain.Entities.Course
+﻿@model EducationalResourceManagement.Domain.Entities.Material
 
-<h2>Create Course</h2>
-<form asp-action="Create">
+<h2>Create New Material</h2>
+
+<form method="post">
     <div class="form-group">
-        <label asp-for="Title" class="control-label"></label>
-        <input asp-for="Title" class="form-control" />
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" required />
     </div>
+
     <div class="form-group">
-        <label asp-for="TeacherId" class="control-label">Teacher</label>
-        <input asp-for="TeacherId" class="form-control" />
+        <label for="Description">Description</label>
+        <textarea class="form-control" id="Description" name="Description"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
-<a href="@Url.Action("Index")">Back to List</a>

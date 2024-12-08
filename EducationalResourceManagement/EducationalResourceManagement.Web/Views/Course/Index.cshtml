@@ -1,7 +1,4 @@
-﻿@model IEnumerable<EducationalResourceManagement.Domain.Entities.Course>
-
-<h2>Course List</h2>
-<table class="table">
+﻿<table class="course-list-table">
     <thead>
         <tr>
             <th>Title</th>
@@ -10,19 +7,29 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var course in Model)
-        {
-            <tr>
-                <td>@course.Title</td>
-                <td>@course.Teacher?.Name</td>
-                <td>
-                    <a href="@Url.Action("Details", new { id = course.Id })">Details</a> |
-                    <a href="@Url.Action("Edit", new { id = course.Id })">Edit</a> |
-                    <a href="@Url.Action("Delete", new { id = course.Id })">Delete</a>
-                </td>
-            </tr>
-        }
+        <tr>
+            <td>Math</td>
+            <td>John Doe</td>
+            <td class="actions">
+                <a href="@Url.Action("Details", "Courses", new { id = 1 })">Details</a>
+                <a href="@Url.Action("Edit", "Courses", new { id = 1 })">Edit</a>
+                <form method="post" action="@Url.Action("Delete", "Courses", new { id = 1 })" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Jane Smith</td>
+            <td class="actions">
+                <a href="@Url.Action("Details", "Courses", new { id = 2 })">Details</a>
+                <a href="@Url.Action("Edit", "Courses", new { id = 2 })">Edit</a>
+                <form method="post" action="@Url.Action("Delete", "Courses", new { id = 2 })" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
     </tbody>
 </table>
-<a href="@Url.Action("Create")">Create New Course</a>
 
+<a href="@Url.Action("Create", "Courses")" class="create-course-btn">Create New Course</a>
